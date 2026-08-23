@@ -1,0 +1,32 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: "/app"
+    schedule:
+      interval: weekly
+    groups:
+      npm:
+        patterns: ["*"]
+      npm-security:
+        applies-to: security-updates
+        patterns: ["*"]
+  - package-ecosystem: docker
+    directory: "/app"
+    schedule:
+      interval: weekly
+    groups:
+      docker:
+        patterns: ["*"]
+      docker-security:
+        applies-to: security-updates
+        patterns: ["*"]
+  - package-ecosystem: docker-compose
+    directory: "/"
+    schedule:
+      interval: weekly
+    groups:
+      docker-compose:
+        patterns: ["*"]
+      docker-compose-security:
+        applies-to: security-updates
+        patterns: ["*"]
